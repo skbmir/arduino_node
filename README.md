@@ -11,9 +11,9 @@ Command processing is done in cmd_vel_cb function. This code is written to contr
 
 
 #### Subscribed topics
-
+------
 * cmd_vel (geometry_msgs/Twist) - velosity and steer commands from local planner
 
 #### Published topics
-
+------
 * imu_data (sensor_msgs/Imu) - data from BNO055 9 DOF IMU
