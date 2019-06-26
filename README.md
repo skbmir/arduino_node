@@ -9,11 +9,14 @@ Depends on:
 
 Command processing is done in cmd_vel_cb function. This code is written to control 2 DC motors and steering servo.
 
-
-#### Subscribed topics
 ------
+#### Subscribed topics
+
 * cmd_vel (geometry_msgs/Twist) - velosity and steer commands from local planner
 
-#### Published topics
 ------
+#### Published topics
+
 * imu_data (sensor_msgs/Imu) - data from BNO055 9 DOF IMU
+
+------
