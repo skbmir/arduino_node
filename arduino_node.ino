@@ -10,7 +10,7 @@
 
 #define BNO055_SAMPLERATE_DELAY_MS (20)
 #define SERVO_PWM_PIN 8
-#define ZERO_STEER 80
+#define ZERO_STEER 60
 #define MTR1_SPD_PIN 5
 #define MTR1_DIR_PIN 4
 #define MTR2_SPD_PIN 6
@@ -42,6 +42,7 @@ void setup()
     pinMode(i, OUTPUT);
   
   node.initNode();
+  node.getHardware()->setBaud(115200);
   node.advertise(imu_pub);
   node.subscribe(cmd_sub);
   
@@ -58,6 +59,7 @@ void setup()
 void loop()
 {
   imu::Quaternion quat = bno.getQuat();
+  quat.normalize();
   imu::Vector<3> linear = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
   imu::Vector<3> angular = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   
